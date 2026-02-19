@@ -35,8 +35,8 @@ pip install nnunetv2
 
 ### 1.3 Download the pretrained model 
 Download the pretrained MELD-PostOp model archive (_MELD-PostOp.zip_) from Figshare and unzip it locally:
-   -[MELD-PostOp Figshare](https://figshare.com/s/c5a3d4a5604b229eeb5f) 
-   - version: v1.0.0
+- [MELD-PostOp Figshare](https://figshare.com/s/c5a3d4a5604b229eeb5f)
+- version: v1.0.0
 
 ### 1.4 License setup 
 A valid **MELD-PostOp licencse file** is required to run inference. After completing the MELD-PostOp registration form, you will receive a license file. 
