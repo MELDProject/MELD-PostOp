@@ -10,6 +10,8 @@ This page provides instructions for installing the pretrained MELD-PostOp model 
 ### LICENSE 
 We kindly ask all MELD-PostOp users to complete the MELD-PostOp registration form. After submission, you will receive a license file, which is required to use MELD-PostOp version v1.0.0.
 
+[**MELD-PostOp Registration Form**](https://forms.gle/Sm8ZDUbU8GThfqwb6)
+
 Your email address will also be added to the MELD-PostOp mailing list so we can keep you informed about bug fixes and new releases.
 
 ### System requirements 
