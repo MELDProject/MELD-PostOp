@@ -53,7 +53,7 @@ Each notebook has specific input requirements, detailed below.
 ## 03_Fig_resection_distribution.ipynb
 
 **Requirements:**
-- MNI-registered resection cavity masks ([codes for mni registration (+qc)](../analysis/registration))
+- MNI-registered resection cavity masks 
 - MNI template  
 - MNI brain mask  
 
