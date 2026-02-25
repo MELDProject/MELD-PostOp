@@ -3,7 +3,7 @@
 # MELD-PostOp
 **Preprint**: [here](link) 
 
-MELD-PostOp is an automated tool for segmenting resection cavities on postoperative T1w MRI scans of epilepsy pateitns, developed using nnU-Net framework.
+MELD-PostOp is an automated tool for segmenting resection cavities on postoperative T1w MRI scans of epilepsy patients, developed using nnU-Net framework.
 This page provides instructions for installing the pretrained MELD-PostOp model and running inference on new patients. 
 
 
@@ -30,7 +30,7 @@ conda activate meldpostop
 ```
 
 ### 1.2 Install nnU-Net v2 
-MELD-PostOp is developed on the nnU-Net framework. For additional detials, please refer to the official [nnU-Net](https://github.com/MIC-DKFZ/nnUNet). 
+MELD-PostOp is developed on the nnU-Net framework. For additional details, please refer to the official [nnU-Net](https://github.com/MIC-DKFZ/nnUNet). 
 ```bash
 pip install nnunetv2
 ```
@@ -82,7 +82,6 @@ After completing the installation and setup, the MELD-PostOp directory should ha
 
 ## 3. Running MELD-PostOp inference 
 ### 3.1 Directory&command setup 
-Set the model directory 
 ```bash
 cd path/to/MELD-PostOp
 chmod +x bin/run_meldpostop_v1.sh
