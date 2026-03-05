@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com//MELDProject/meld_graph/main/docs/images/MELD_logo.png" alt="MELD logo" width="100" align="left"/> 
 
 # MELD-PostOp
-**Preprint**: [here](link) 
+**Preprint**: [here](https://www.medrxiv.org/content/10.64898/2026.02.26.26347093v1) 
 
 MELD-PostOp is an automated tool for segmenting resection cavities on postoperative T1w MRI scans of epilepsy patients, developed using nnU-Net framework.
 This page provides instructions for installing the pretrained MELD-PostOp model and running inference on new patients. 
