@@ -6,9 +6,18 @@
 MELD-PostOp is an automated tool for segmenting resection cavities on postoperative T1w MRI scans of epilepsy patients, developed using nnU-Net framework.
 This page provides instructions for installing the pretrained MELD-PostOp model and running inference on new patients. 
 
+## UPDATE
+### What's new in MELD-PostOp v2.0.0?
+V2 improves segmentation in **selective amygdalahippocampectomy** cases. In particular, cases where v1 missed hippocampal resections are better segmented by v2.  
+
+**For more detail**: [MELD-PostOp version comparison](https://github.com/MELDProject/MELD-PostOp/blob/main/docs/version_comparison.md)
+
+For access to the original **MELD-PostOp model**, please visit the [v1.0.0 release](https://github.com/MELDProject/MELD-PostOp/releases/tag/v1.0.0).
+
+
 
 ### LICENSE 
-We kindly ask all MELD-PostOp users to complete the MELD-PostOp registration form. After submission, you will receive a license file, which is required to use MELD-PostOp version v1.0.0.
+We kindly ask all MELD-PostOp users to complete the MELD-PostOp registration form. After submission, you will receive a license file, which is required to use MELD-PostOp v1 and v2.
 
 [**MELD-PostOp Registration Form**](https://forms.gle/Sm8ZDUbU8GThfqwb6)
 
@@ -19,7 +28,7 @@ Your email address will also be added to the MELD-PostOp mailing list so we can 
 - Python: 3.9 or newer
 - Hardware: GPU is strongly recommended 
 
-## 1. MELD-PostOp installation & setup
+## 1. MELD-PostOp v2 installation & setup
 ### 1.1 Create a virtual environment
 We recommend using **Anaconda** to manage the Python environment and dependencies. 
 Please follow the official installation instructions for [Anaconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). 
@@ -38,7 +47,7 @@ pip install nnunetv2
 ### 1.3 Download the pretrained model 
 Download the pretrained MELD-PostOp model archive (_MELD-PostOp.zip_) from Figshare and unzip it locally:
 - [MELD-PostOp Figshare](https://figshare.com/s/c5a3d4a5604b229eeb5f)
-- version: v1.0.0
+- version: v2.0.0
 
 ### 1.4 License setup 
 A valid **MELD-PostOp licencse file** is required to run inference. After completing the MELD-PostOp registration form, you will receive a license file. 
@@ -47,13 +56,13 @@ Place the license file in: `/MELD-PostOp/model/`. Inference will fail if no vali
 ### 1.5 Directory structure 
 After completing the installation and setup, the MELD-PostOp directory should have the following structure: 
    ```
-   MELD-PostOp/
+   MELD-PostOp_v2/
    ├── input_001/
    ├── bin/
-   │   └── run_meldpostop_v1.sh
+   │   └── meldpostop_v2.sh
    ├── model/
    │   ├── (MELD-PostOp license file) 
-   │   └── Dataset001_MELDPostOp_v1.0.0/
+   │   └── Dataset001_MELDPostOp_v2.0.0/
    │       └── nnUNetTrainer__nnUNetPlans__3d_fullres/     < (pretrained model weights) 
    ```
 
@@ -84,13 +93,13 @@ After completing the installation and setup, the MELD-PostOp directory should ha
 ### 3.1 Directory&command setup 
 ```bash
 cd path/to/MELD-PostOp
-chmod +x bin/run_meldpostop_v1.sh
+chmod +x bin/meldpostop_v2.sh
 ```
 
 ### 3.2 Inference 
 To run inference on new patients, execute: 
 ```bash
-bin/run_meldpostop_v1.sh -m </path/to/MELD-PostOp> -k <key> 
+bin/meldpostop_v2.sh -m </path/to/MELD-PostOp> -k <key> 
 ```
 
 ## Additional information
