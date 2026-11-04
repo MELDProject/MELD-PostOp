@@ -10,7 +10,7 @@ This page provides instructions for installing the pretrained MELD-PostOp model 
 ### What's new in MELD-PostOp v2.0.0?
 V2 improves segmentation in **selective amygdalahippocampectomy** cases. In particular, cases where v1 missed hippocampal resections are better segmented by v2.  
 
-**For more detail**: [MELD-PostOp version comparison](https://github.com/MELDProject/MELD-PostOp/blob/main/docs/version_comparison.md)
+**For more detail**: [MELD-PostOp version comparison](https://github.com/MELDProject/MELD-PostOp/blob/v2_draft/docs/version_comparison.md)
 
 For access to the original **MELD-PostOp model**, please visit the [v1.0.0 release](https://github.com/MELDProject/MELD-PostOp/releases/tag/v1.0.0).
 
