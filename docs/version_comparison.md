@@ -30,8 +30,8 @@ Version 2.0.0 also improves segmentation in selective amygdalohippocampectomy ca
 |---:|:---|:---|
 | Median DSC [IQR] | 0.85 [0.74–0.92] | **0.86 [0.78–0.93]** |
 | PPV | 0.93 | **0.94** |
-| Median FP clusters [IQR]  | 0 [0–0] | 0 [0–0] |
-| Cases with DSC > 0 | 135/137 (98.5%) | 137/139 (98.6%) |
+| Median FP clusters [IQR]  | 0 [0–0] | **0 [0–0]** |
+| Cases with DSC > 0 | 135/137 (98.5%) | **137/139 (98.6%)** |
 | Cases with DSC > 0.5  | 128/137 (93.4%) | **132/139 (95.0%)** |
 
 *DSC: Dice similarity coefficient; IQR: interquartile range; PPV: positive predictive value; FP: false-positive.*
