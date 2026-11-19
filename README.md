@@ -107,6 +107,3 @@ After running inference with MELD-PostOp, you may wish to perform **external val
 Please refer to the following link for detailed instructions: 
 - [notebooks](notebooks/)
 
-If you wish to recerate figures in the manuscript, please refer to the following link for detailed instructions: 
-- [figures](figures/)
-
