@@ -10,19 +10,13 @@ This page provides instructions for installing the pretrained MELD-PostOp model 
 ### What's new in MELD-PostOp v2.0.0?
 V2 improves segmentation in **selective amygdalohippocampectomy** cases. In particular, cases where v1 missed hippocampal resections are better segmented by v2.
 
+<img src="https://github.com/MELDProject/MELD-PostOp/blob/v2_draft/assets/meldpostop_ver_compare.png">
+
 **For more detail**: [MELD-PostOp version comparison](https://github.com/MELDProject/MELD-PostOp/blob/v2_draft/docs/version_comparison.md)
 
-For access to the original **MELD-PostOp model**, please visit the [v1.0.0 release](https://github.com/MELDProject/MELD-PostOp/releases/tag/v1.0.0).
-
-### New workflow
-MELD-PostOp is now installed by cloning this repository and run with a single command, `run_meldpostop.sh -k <key>`. The new workflow:
-- creates the Python environment from the provided `environment.yml`
-- reads your data location from `meldpostop_config.ini`, so no paths are passed on the command line
-- accepts any unique alphanumeric string as dataset key (not only numbers)
-- checks the license and model version before inference and prints a summary of the run
-
-### LICENSE
+## LICENSE
 We kindly ask all MELD-PostOp users to complete the MELD-PostOp registration form. After submission, you will receive a license file, which is required to use MELD-PostOp v1 and v2.
+If you have already registered and have a license file for v1, copy it to MELD-PostOp_v2/model/ 
 
 [**MELD-PostOp Registration Form**](https://forms.gle/Sm8ZDUbU8GThfqwb6)
 
@@ -32,6 +26,8 @@ Your email address will also be added to the MELD-PostOp mailing list so we can 
 - The instructions below were tested on Linux (Ubuntu 22.04.5)
 - Python: 3.9 or newer (`environment.yml` pins 3.13.5)
 - Hardware: GPU is strongly recommended
+
+
 
 ## 1. MELD-PostOp v2 installation & setup
 ### 1.1 Clone the repository
@@ -59,7 +55,7 @@ conda activate meldpostop
 This creates an environment named `meldpostop` with Python 3.13.5 and installs [nnU-Net v2](https://github.com/MIC-DKFZ/nnUNet) (`pip install nnunetv2`), the framework MELD-PostOp is built on.
 
 ### 1.3 Download the pretrained model
-Download the pretrained MELD-PostOp model archive (_MELD-PostOp.zip_) from Figshare and unzip it locally. The unzipped folder (`MELD-PostOp_v2/`) is your **data folder**; it can be anywhere on your system, separate from the cloned repository.
+Download the pretrained MELD-PostOp model archive (_MELD-PostOp_v2.zip_) from Figshare and unzip it locally. The unzipped folder (`MELD-PostOp_v2/`) is your **data folder**; it can be anywhere on your system, separate from the cloned repository.
 - [MELD-PostOp Figshare](https://doi.org/10.6084/m9.figshare.35003707)
 - version: v2.0.0
 
@@ -72,17 +68,10 @@ Open `meldpostop_config.ini` in the cloned repository and set the path to your `
 
 ```ini
 [paths]
-meldpostopv2_path = /path/to/MELD-PostOp_v2/
+meldpostop_weight_path = /path/to/MELD-PostOp_v2/
 ```
+_If you wish to use model v1, set meldpostop_weight_path to the folder containing the v1 model weights._
 
-Optional inference settings (defaults shown):
-```ini
-[inference]
-dataset_id = 001
-configuration = 3d_fullres
-save_probabilities = true
-disable_tta = true
-```
 
 ### 1.6 Directory structure
 After completing the installation and setup, your data folder should have the following structure:
@@ -94,15 +83,10 @@ MELD-PostOp_v2/
 │   └── Dataset001_MELDPostOp_v2.0.0/
 │       └── nnUNetTrainer__nnUNetPlans__3d_fullres/   < (pretrained model weights)
 ```
-`output_<key>/` folders are created automatically next to `input_<key>/` when you run inference.
 
 ### 1.7 Make the command executable
 ```bash
 chmod +x run_meldpostop.sh
-```
-Optionally, make it available from anywhere:
-```bash
-ln -s "$PWD/run_meldpostop.sh" ~/bin/run_meldpostop
 ```
 
 ## 2. Data preparation
@@ -119,10 +103,10 @@ ln -s "$PWD/run_meldpostop.sh" ~/bin/run_meldpostop
 - Example: `sub-<subject_id>_0000.nii.gz`
 
 ### 2.3 Input directory
-- To process a dataset, create an input directory named `input_<key>` inside your `MELD-PostOp_v2/` folder, where `<key>` is a dataset identifier
-- The key can be any string made of letters, digits, `.`, `_` or `-` (e.g. `003`, `siteA`, `cohort_2026.v1`)
+- To process a dataset, create an input directory named `input_<key>` inside your `MELD-PostOp_v2/` folder, where `<key>` is an input dataset identifier
+- The key can be any string (e.g. `003`, `siteA`, `cohort_2026.v1`)
 - **Each key must be unique.** The script refuses to run if `output_<key>` already exists and is not empty, so previous results are not overwritten by accident
-- Place all NIfTI files for a given dataset directly inside the corresponding input directory (subfolders are not read)
+- Place all NIfTI files for a given dataset directly inside the corresponding input directory
 - Output directories are generated automatically:
      - `input_siteA` → `output_siteA`
      - `input_003` → `output_003`
@@ -141,12 +125,9 @@ MELD-PostOp_v2/
 ### 3.1 Inference
 Activate the environment and run, from the cloned repository:
 ```bash
-conda activate meldpostop
-./run_meldpostop.sh -k <key>
+bash run_meldpostop.sh -k <key>
 ```
-
-Options:
-
+**Flags**
 | Option | Description |
 |--------|-------------|
 | `-k <key>` | **Required.** Unique dataset key. Uses `input_<key>` and creates `output_<key>` |
@@ -163,30 +144,22 @@ Before inference starts, the script:
 
 It then prints a summary and starts inference:
 ```
-========================================
+================================================================================
  MELD-PostOp
-========================================
+================================================================================
  Key:            siteA
- Model version:  MELD-PostOp_v2.0.0 (Dataset001_MELDPostOp_v2.0.0)
+ Model version:  MELD-PostOp_v2.0.0 (model weight: Dataset001_MELDPostOp_v2.0.0)
  License file:   /path/to/MELD-PostOp_v2/model/meld_postop_license.txt
  License ID:     123456
  Input files:    2 subject(s) (2 nifti files)
  Input dir:      /path/to/MELD-PostOp_v2/input_siteA
  Output dir:     /path/to/MELD-PostOp_v2/output_siteA
-========================================
+================================================================================
 ```
 
 ### 3.3 Outputs
 `output_<key>/` contains the predicted segmentations (and probability maps, if `save_probabilities = true`), plus a `metadata.json` file recording the model version, dataset key, license ID, number of input files, input/output paths and timestamp.
 
-## Troubleshooting
-| Message | Fix |
-|---------|-----|
-| `nnUNetv2_predict not found` | Run `conda activate meldpostop` |
-| `meldpostopv2_path is still the placeholder` | Edit `meldpostop_config.ini` (section 1.5) |
-| `No valid license file ... found` | Place the license `.txt` file (containing `License ID: XXXXXX`) in `MELD-PostOp_v2/model/` |
-| `Output directory already exists` | The key has been used. Choose a new key or add `-f` |
-| `No files named *_0000.nii(.gz)` | Rename inputs following section 2.2 |
 
 ## Additional information
 After running inference with MELD-PostOp, you may wish to perform **external validation** of the model on your dataset.
