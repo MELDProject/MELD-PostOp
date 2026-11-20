@@ -35,14 +35,6 @@ Your email address will also be added to the MELD-PostOp mailing list so we can 
 git clone https://github.com/MELDProject/MELD-PostOp.git
 cd MELD-PostOp
 ```
-The repository contains:
-```
-MELD-PostOp/
-├── environment.yml          # conda environment (python + nnU-Net v2)
-├── meldpostop_config.ini    # path to your MELD-PostOp_v2 data folder
-├── config.py                # reads and validates the config file
-└── run_meldpostop.sh        # inference command
-```
 
 ### 1.2 Create the virtual environment
 We recommend using **Anaconda** to manage the Python environment and dependencies.
