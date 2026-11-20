@@ -107,17 +107,18 @@ fi
 ############################################
 # Summary
 ############################################
-echo "========================================"
+echo
+echo "============================================================================="
 echo " MELD-PostOp"
-echo "========================================"
+echo "============================================================================="
 echo " Key:            $KEY"
-echo " Model version:  $MODEL_VERSION ($MODEL_FOLDER)"
+echo " Model version:  $MODEL_VERSION (model weight: $MODEL_FOLDER)"
 echo " License file:   $LICENSE_FILE"
 echo " License ID:     $LICENSE_ID"
 echo " Input files:    $NUM_SUBJECTS subject(s) ($NUM_FILES nifti files)"
 echo " Input dir:      $INPUT_DIR"
 echo " Output dir:     $OUTPUT_DIR"
-echo "========================================"
+echo "============================================================================="
 
 ############################################
 # nnU-Net environment
@@ -149,6 +150,7 @@ echo "Metadata written to $METADATA_FILE"
 # Citation
 ############################################
 echo
+echo
 echo "#############################################################################"
 echo "Please cite the following paper when using MELD-PostOp:"
 echo "Seo J, Ripart M, Kaas H, Kronlage C, Sinclair B, Vivash L, et al."
@@ -172,7 +174,7 @@ nnUNetv2_predict \
     -c "$NN_CONFIGURATION" \
     "${EXTRA_ARGS[@]}"
 
-echo "----------------------------------------"
+echo "-----------------------------------------------------------------------------"
 echo "Inference completed successfully."
 echo "Results saved in $OUTPUT_DIR"
-echo "----------------------------------------"
+echo "-----------------------------------------------------------------------------"
