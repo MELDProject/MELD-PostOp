@@ -70,7 +70,7 @@ Open `meldpostop_config.ini` in the cloned repository and set the path to your `
 [paths]
 meldpostop_weight_path = /path/to/MELD-PostOp_v2/
 ```
-_If you wish to use model v1, set meldpostop_weight_path to the folder containing the v1 model weights._
+_If you wish to use model v1, set meldpostop_weight_path to the folder containing the [v1 model weights](https://figshare.com/s/c5a3d4a5604b229eeb5f)._
 
 
 ### 1.6 Directory structure
